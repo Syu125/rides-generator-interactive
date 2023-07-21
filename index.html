@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form</title>
+</head>
+<body>
+  <h1>Submit your Form</h1>
+  <form id="form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+
+    <label for="message">Message:</label>
+    <textarea id="message" required></textarea><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Handle form submission
+    document.getElementById('form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Send form data to the server
+      fetch('/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      })
+      .then(response => response.json())
+      .then(data => alert('Form submitted successfully!'))
+      .catch(error => alert('Error submitting the form.'));
+    });
+  </script>
+</body>
+</html>
