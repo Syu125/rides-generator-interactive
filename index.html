@@ -34,8 +34,9 @@
         body: JSON.stringify({ name, email, message })
       })
       .then(response => response.json())
+      .then(response => console.log(console))
       .then(data => alert('Form submitted successfully!'))
-      .catch(error => alert('Error submitting the form.'));
+      .catch(error => alert(error));
     });
   </script>
 </body>
