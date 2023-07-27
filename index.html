@@ -29,7 +29,7 @@
       console.log(name + ", " + email + ", " + message);
 
       // Send form data to the server
-      fetch('/submit', {
+      fetch('/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, message })
