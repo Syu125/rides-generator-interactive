@@ -38,6 +38,7 @@
             body: JSON.stringify({ name, email, message })
         });
         const content = await rawResponse.json();
+        console.log(content);
     });
     fetch('https://syu125.github.io/rides-generator-interactive/posts', {
         method: 'POST',
