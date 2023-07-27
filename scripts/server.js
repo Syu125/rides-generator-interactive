@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Save form data to the database
-app.post('https://syu125.github.io/posts', (req, res) => {
+app.post('https://syu125.github.io/rides-generator-interactive/posts', (req, res) => {
   const { name, email, message } = req.body;
 
   db.run('INSERT INTO formData (name, email, message) VALUES (?, ?, ?)', [name, email, message], function (err) {
