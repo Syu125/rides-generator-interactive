@@ -29,15 +29,17 @@
       console.log(name + ", " + email + ", " + message);
 
       // Send form data to the server
-      fetch('/posts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-      })
-      .then(response => response.json())
-      .then(response => console.log(console))
-      .then(data => alert('Form submitted successfully!'))
-      .catch(error => alert(error));
+      (async () => {
+        const rawResponse = fetch('https://syu125.github.io/posts', {
+            method: 'POST',
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, message })
+        });
+        const content = await rawResponse.json();
+        console.log(content);
+        });
     });
   </script>
 </body>
