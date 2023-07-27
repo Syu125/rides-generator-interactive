@@ -28,8 +28,8 @@
       const message = document.getElementById('message').value;
       console.log(name + ", " + email + ", " + message);
 
-      // Send form data to the server
-      (async () => {
+    // Send form data to the server
+    (async () => {
         const rawResponse = fetch('https://syu125.github.io/rides-generator-interactive/posts', {
             method: 'POST',
             headers: { 
@@ -38,18 +38,15 @@
             body: JSON.stringify({ name, email, message })
         });
         const content = await rawResponse.json();
-        });
-        console.log("Retrieving from database...");
-        (async () => {
-            const rawResponse = fetch('https://syu125.github.io/rides-generator-interactive/posts', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-            const content = await rawResponse.json();
-            console.log(JSON.stringify(content));
-        });
+    });
+    fetch('https://syu125.github.io/rides-generator-interactive/posts', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(json => console.log(JSON.stringify(json)));
     });
         
   </script>
