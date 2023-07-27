@@ -41,9 +41,14 @@
         });
         console.log("Retrieving from database...");
         (async () => {
-            const rawResponse = fetch('https://syu125.github.io/rides-generator-interactive/posts');
+            const rawResponse = fetch('https://syu125.github.io/rides-generator-interactive/posts', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
             const content = await rawResponse.json();
-            console.log(content);
+            console.log(JSON.stringify(content));
         });
     });
         
